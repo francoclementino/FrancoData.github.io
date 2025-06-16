@@ -3,261 +3,664 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tu Nombre o Empresa - Soluciones de Datos</title>
+    <title>Data Analytics Solutions</title>
     <style>
-        /* --- ESTILOS GENERALES --- */
-        body {
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-            background-color: #f0f2f5; /* Un fondo blanco-grisáceo más neutro */
-            color: #333; /* Texto oscuro para mejor legibilidad */
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
             line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
         }
 
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        h1, h2, h3 {
-            color: #1a1a2e; /* Títulos en azul oscuro */
-            font-weight: 700;
-        }
-
-        h1 { font-size: 3rem; }
-        h2 { font-size: 2.2rem; text-align: center; margin-bottom: 3rem; }
-
-        section {
-            padding: 60px 0;
-        }
-
-        /* --- NAVEGACIÓN --- */
-        .navbar {
-            background-color: rgba(255, 255, 255, 0.85); /* Fondo blanco semitransparente */
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
             padding: 1rem 0;
-            position: sticky;
+            position: fixed;
+            width: 100%;
             top: 0;
-            z-index: 100;
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid #ddd;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
         }
 
-        .navbar .container {
+        nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #1a1a2e;
-            text-decoration: none;
-        }
-
-        .nav-links {
-            list-style: none;
-            display: flex;
-            gap: 20px;
-        }
-
-        .nav-links a {
-            color: #333;
-            text-decoration: none;
-            font-size: 1rem;
-            padding: 5px 10px;
-            border-radius: 5px;
-            transition: color 0.3s, background-color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: #7e57c2;
-            background-color: #f0f2f5;
-        }
-
-        /* --- SECCIÓN PRINCIPAL (HERO) --- */
-        .hero {
-            background: linear-gradient(rgba(26, 26, 46, 0.7), rgba(26, 26, 46, 0.7)), url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover;
-            height: 80vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: #fff;
-        }
-        
-        .hero h1 {
-            color: #fff;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 600px;
-            margin: 1rem auto;
-        }
-        
-        .cta-button {
-            background-color: #7e57c2; /* Un morado llamativo */
-            color: #fff;
-            padding: 15px 30px;
-            text-decoration: none;
-            font-size: 1.1rem;
-            font-weight: bold;
-            border-radius: 50px;
-            transition: background-color 0.3s;
-        }
-        
-        .cta-button:hover {
-            background-color: #9575cd;
-        }
-
-        /* --- NUEVA SECCIÓN DE SERVICIOS --- */
-        .services-section-new {
-            background-color: #27aae1; /* Fondo azul de la referencia */
-            padding: 50px 0;
-            border-radius: 15px; /* Bordes redondeados como en la imagen */
-            margin: 60px 20px; /* Margen para que no toque los bordes */
-        }
-
-        .services-grid-new {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 1.5rem;
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 0 2rem;
         }
-        
-        .service-card-new {
-            text-align: center;
-            color: #fff;
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
         }
 
-        .service-card-new svg {
-            width: 64px;
-            height: 64px;
-            margin-bottom: 1rem;
-            fill: #fff; /* Los iconos serán blancos */
-        }
-        
-        .service-card-new h3 {
-            color: #fff;
-            font-size: 1.2rem;
-            font-weight: 600;
-        }
-        
-        /* --- NUEVA SECCIÓN DE CLIENTES --- */
-        #clientes {
-            padding: 60px 0;
-        }
-
-        .logos-container {
+        .nav-links {
             display: flex;
-            flex-wrap: wrap; /* Para que se ajusten en pantallas pequeñas */
-            justify-content: center; /* Centra los logos */
-            align-items: center;
-            gap: 3rem; /* Espacio entre logos */
+            list-style: none;
+            gap: 2rem;
         }
 
-        .logos-container img {
-            max-height: 60px; /* Altura máxima para todos los logos */
-            max-width: 150px; /* Ancho máximo */
-            filter: grayscale(100%); /* Los pone en blanco y negro */
-            opacity: 0.7;
-            transition: all 0.3s ease-in-out;
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
         }
 
-        .logos-container img:hover {
-            filter: grayscale(0%); /* Vuelve a color al pasar el mouse */
-            opacity: 1;
-            transform: scale(1.1); /* Agranda un poco el logo */
+        .nav-links a:hover {
+            opacity: 0.8;
         }
-        
-        /* --- FOOTER (PIE DE PÁGINA) --- */
-        .footer {
-            background-color: #1a1a2e;
-            color: #e0e0e0;
-            padding: 2rem 0;
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            color: white;
+            padding: 120px 0 80px;
             text-align: center;
-            font-size: 0.9rem;
-            margin-top: 40px;
+            position: relative;
+            overflow: hidden;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
         }
 
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                linear-gradient(45deg, rgba(0,255,255,0.05) 0%, transparent 50%),
+                linear-gradient(-45deg, rgba(255,0,150,0.05) 0%, transparent 50%),
+                radial-gradient(circle at 20% 80%, rgba(120,119,198,0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255,119,198,0.3) 0%, transparent 50%);
+            background-size: 100% 100%, 100% 100%, 50% 50%, 50% 50%;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><defs><linearGradient id="barGrad" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" style="stop-color:%2300d4ff;stop-opacity:0.8"/><stop offset="100%" style="stop-color:%230099cc;stop-opacity:0.4"/></linearGradient><linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:%23ff6b9d;stop-opacity:0.8"/><stop offset="100%" style="stop-color:%23c44569;stop-opacity:0.6"/></linearGradient></defs><g opacity="0.4"><rect x="50" y="300" width="25" height="200" fill="url(%23barGrad)"/><rect x="90" y="250" width="25" height="250" fill="url(%23barGrad)"/><rect x="130" y="350" width="25" height="150" fill="url(%23barGrad)"/><rect x="170" y="200" width="25" height="300" fill="url(%23barGrad)"/><rect x="210" y="320" width="25" height="180" fill="url(%23barGrad)"/><rect x="250" y="280" width="25" height="220" fill="url(%23barGrad)"/><polyline points="400,150 450,120 500,180 550,100 600,140 650,80 700,110" stroke="url(%23lineGrad)" stroke-width="3" fill="none"/><circle cx="400" cy="150" r="4" fill="%23ff6b9d"/><circle cx="450" cy="120" r="4" fill="%23ff6b9d"/><circle cx="500" cy="180" r="4" fill="%23ff6b9d"/><circle cx="550" cy="100" r="4" fill="%23ff6b9d"/><circle cx="600" cy="140" r="4" fill="%23ff6b9d"/><circle cx="650" cy="80" r="4" fill="%23ff6b9d"/><circle cx="700" cy="110" r="4" fill="%23ff6b9d"/><text x="50" y="540" font-family="Arial" font-size="14" fill="%2300d4ff" opacity="0.7">Sessions</text><text x="50" y="560" font-family="Arial" font-size="24" font-weight="bold" fill="%2300d4ff">479K</text><text x="200" y="540" font-family="Arial" font-size="14" fill="%2300d4ff" opacity="0.7">Bounce Rate</text><text x="200" y="560" font-family="Arial" font-size="24" font-weight="bold" fill="%2300d4ff">23.4%</text><text x="350" y="540" font-family="Arial" font-size="14" fill="%23ff6b9d" opacity="0.7">Conversion</text><text x="350" y="560" font-family="Arial" font-size="24" font-weight="bold" fill="%23ff6b9d">12.8%</text><text x="900" y="150" font-family="Arial" font-size="14" fill="%2300d4ff" opacity="0.7">Page Views</text><text x="900" y="170" font-family="Arial" font-size="32" font-weight="bold" fill="%2300d4ff">2.7M</text><text x="900" y="220" font-family="Arial" font-size="14" fill="%23ff6b9d" opacity="0.7">Revenue</text><text x="900" y="240" font-family="Arial" font-size="28" font-weight="bold" fill="%23ff6b9d">$847K</text><rect x="800" y="300" width="300" height="2" fill="%2300d4ff" opacity="0.3"/><rect x="800" y="320" width="250" height="2" fill="%2300d4ff" opacity="0.3"/><rect x="800" y="340" width="200" height="2" fill="%2300d4ff" opacity="0.3"/><rect x="800" y="360" width="180" height="2" fill="%23ff6b9d" opacity="0.3"/></g></svg>') no-repeat;
+            background-size: cover;
+            background-position: center;
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 300;
+            line-height: 1.2;
+        }
+
+        .hero h1 .highlight {
+            font-weight: 700;
+            background: linear-gradient(45deg, #00d4ff, #0099cc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #7c4dff, #3f51b5);
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 20px rgba(124, 77, 255, 0.4);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(124, 77, 255, 0.6);
+            background: linear-gradient(45deg, #9c27b0, #673ab7);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .section-title p {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 35px rgba(0,0,0,0.15);
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .service-card h3 {
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .service-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Portfolio/Cases Section */
+        .portfolio {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .portfolio-item {
+            background: #f8f9fa;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .portfolio-content {
+            padding: 2rem;
+        }
+
+        .portfolio-item h3 {
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .portfolio-item p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .portfolio-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .tech-tag {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+
+        /* Clients Section */
+        .clients {
+            padding: 60px 0;
+            background: white;
+            overflow: hidden;
+        }
+
+        .clients-carousel {
+            display: flex;
+            animation: scroll 30s linear infinite;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .client-logo {
+            flex: 0 0 auto;
+            width: 180px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0.6;
+            transition: opacity 0.3s, transform 0.3s;
+            filter: grayscale(100%);
+        }
+
+        .client-logo:hover {
+            opacity: 1;
+            transform: scale(1.1);
+            filter: grayscale(0%);
+        }
+
+        .client-logo img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .clients-carousel:hover {
+            animation-play-state: paused;
+        }
+
+        /* WhatsApp Button */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            width: 60px;
+            height: 60px;
+            background: #25d366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+        }
+
+        .whatsapp-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6);
+        }
+
+        .whatsapp-btn svg {
+            width: 35px;
+            height: 35px;
+            fill: white;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .contact h2 {
+            margin-bottom: 1rem;
+        }
+
+        .contact p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            text-align: center;
+        }
+
+        .contact-item h4 {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .whatsapp-btn {
+                width: 50px;
+                height: 50px;
+            }
+
+            .whatsapp-btn svg {
+                width: 28px;
+                height: 28px;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .service-card,
+        .portfolio-item {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        /* Scroll animations */
+        .scroll-animate {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease-out;
+        }
+
+        .scroll-animate.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
     </style>
 </head>
 <body>
-
-    <nav class="navbar">
-        <div class="container">
-            <a href="#" class="logo">TuLogo</a>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">DataAnalytics Pro</div>
             <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
                 <li><a href="#servicios">Servicios</a></li>
-                <li><a href="#clientes">Clientes</a></li>
+                <li><a href="#casos">Casos</a></li>
                 <li><a href="#contacto">Contacto</a></li>
             </ul>
-        </div>
-    </nav>
-
-    <header class="hero">
-        <div class="hero-content">
-            <h1>Transformamos Datos en Decisiones</h1>
-            <p>Aquí va una descripción corta y potente de lo que haces. Analizamos, visualizamos y creamos estrategias basadas en datos para potenciar tu negocio.</p>
-            <a href="#contacto" class="cta-button">Contáctanos</a>
-        </div>
+        </nav>
     </header>
 
-    <main>
-        <section id="servicios" class="services-section-new">
-            <div class="services-grid-new">
-                <div class="service-card-new">
-                    <svg viewBox="0 0 24 24"><path d="M4 18h16v-2H4v2zm0-5h16v-2H4v2zm0-5h16V6H4v2z"></path><path d="M20 3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H4V5h16v14zM6 10h4v2H6zm0-5h4v2H6zm8 10h4v-2h-4zm0-5h4v-2h-4z"></path></svg>
-                    <h3>Estrategia<br>de Datos</h3>
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="hero-content">
+            <h1>Transformamos los <span class="highlight">negocios</span><br>digitalmente</h1>
+            <p>Colaboramos con nuestros clientes en el diseño y ejecución de la estrategia de datos, implementando soluciones BI a través de reportes/dashboards, y desarrollando aplicaciones que permitan la automatización de tareas y procesos.</p>
+            <a href="#contacto" class="cta-button">Comenzar Proyecto</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="servicios">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nuestros Servicios</h2>
+                <p>Soluciones integrales de datos para impulsar tu negocio</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card scroll-animate">
+                    <div class="service-icon">📊</div>
+                    <h3>Business Intelligence</h3>
+                    <p>Desarrollo de dashboards interactivos y reportes automatizados con Power BI, Looker Studio y herramientas de visualización avanzadas.</p>
                 </div>
-                <div class="service-card-new">
-                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"></path></svg>
-                    <h3>Integración y Automatización de Procesos con IA</h3>
+                <div class="service-card scroll-animate">
+                    <div class="service-icon">🔧</div>
+                    <h3>Automatización de Procesos</h3>
+                    <p>Implementación de flujos de trabajo automatizados usando Python, Power Automate y soluciones personalizadas.</p>
                 </div>
-                <div class="service-card-new">
-                    <svg viewBox="0 0 24 24"><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"></path></svg>
-                    <h3>Visualización<br>y Análisis de Datos</h3>
+                <div class="service-card scroll-animate">
+                    <div class="service-icon">☁️</div>
+                    <h3>Soluciones en la Nube</h3>
+                    <p>Migración y optimización de datos en plataformas cloud como Google Cloud, Azure y AWS.</p>
                 </div>
-                <div class="service-card-new">
-                    <svg viewBox="0 0 24 24"><path d="M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14z"></path></svg>
-                    <h3>Desarrollo de Aplicaciones Web/Mobile</h3>
+                <div class="service-card scroll-animate">
+                    <div class="service-icon">📈</div>
+                    <h3>Análisis Predictivo</h3>
+                    <p>Modelos de machine learning y análisis predictivo para toma de decisiones estratégicas basadas en datos.</p>
+                </div>
+                <div class="service-card scroll-animate">
+                    <div class="service-icon">🎯</div>
+                    <h3>Estrategia de Datos</h3>
+                    <p>Consultoría integral para definir la arquitectura de datos y estrategias de gobernanza empresarial.</p>
+                </div>
+                <div class="service-card scroll-animate">
+                    <div class="service-icon">📚</div>
+                    <h3>Capacitación</h3>
+                    <p>Formación especializada en herramientas de análisis de datos y mejores prácticas del sector.</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="clientes">
-            <div class="container">
-                <h2>Nuestros Clientes</h2>
-                <div class="logos-container">
-                    <img src="https://www.cpymeadeneu.com.ar/wp-content/uploads/2021/03/LOGO-cpyime-adeneu-1.png" alt="Logo Centro Pyme Adeneu">
-                    <img src="https://acmelogos.com/images/logo-1.svg" alt="Logo ACME">
-                    <img src="https://grupoinsys.com/wp-content/uploads/2021/09/Logo-sin-fondo-300x125.png" alt="Logo Grupo Insys">
-                    <img src="https://altamore.com.ar/wp-content/uploads/2019/12/logo_altamore_negro-1.png" alt="Logo Altamore">
-                    <img src="https://wps-arg.com/wp-content/uploads/2020/09/logo-wps-header.png" alt="Logo WPS">
-                    <img src="https://alfaconstrucciones.com.ar/wp-content/uploads/2019/04/logo-alfa-retina.png" alt="Logo Alfa Construcciones">
-                    <img src="https://www.manpetrol.com/images/logo-manpetrol.png" alt="Logo Manpetrol">
+    <!-- Portfolio Section -->
+    <section class="portfolio" id="casos">
+        <div class="container">
+            <div class="section-title">
+                <h2>Casos de Éxito</h2>
+                <p>Proyectos que han transformado organizaciones</p>
+            </div>
+            <div class="portfolio-grid">
+                <div class="portfolio-item scroll-animate">
+                    <div class="portfolio-content">
+                        <h3>Transformación Digital Petrolera</h3>
+                        <p>Desarrollamos la estrategia integral de datos de una compañía petrolera, con espacios digitales de trabajo colaborativo en la nube, dashboards de alto nivel y automatizaciones de procesos internos.</p>
+                        <div class="portfolio-tech">
+                            <span class="tech-tag">Power BI</span>
+                            <span class="tech-tag">Azure</span>
+                            <span class="tech-tag">Python</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item scroll-animate">
+                    <div class="portfolio-content">
+                        <h3>Dashboard de Rentabilidad Oil&Gas</h3>
+                        <p>Implementamos una estrategia de datos que permite a la gerencia monitorear la rentabilidad de sus negocios a través de reportes dinámicos en tiempo real.</p>
+                        <div class="portfolio-tech">
+                            <span class="tech-tag">Power BI</span>
+                            <span class="tech-tag">SQL Server</span>
+                            <span class="tech-tag">Power Automate</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item scroll-animate">
+                    <div class="portfolio-content">
+                        <h3>Aplicación Mobile para Relevamientos</h3>
+                        <p>Creamos una aplicación tablet para el relevamiento en tiempo real del estado de instalaciones en yacimientos, con base de datos en la nube y reportes en Power BI.</p>
+                        <div class="portfolio-tech">
+                            <span class="tech-tag">Power Apps</span>
+                            <span class="tech-tag">Power BI</span>
+                            <span class="tech-tag">SharePoint</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item scroll-animate">
+                    <div class="portfolio-content">
+                        <h3>KPIs Operativos Empresariales</h3>
+                        <p>Desarrollamos una serie de KPIs operativos y de negocio para ayudar a la gerencia a comprender sus datos y tomar decisiones informadas, con tiempos de entrega cortos.</p>
+                        <div class="portfolio-tech">
+                            <span class="tech-tag">Looker Studio</span>
+                            <span class="tech-tag">Google Sheets</span>
+                            <span class="tech-tag">Python</span>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="contacto" style="background-color: #f0f2f5;">
-            <div class="container">
-                <h2>Hablemos</h2>
-                <p>¿Tienes un proyecto en mente? Nos encantaría escucharte.</p>
-                <p>Puedes enviarnos un correo a: <a href="mailto:tuemail@dominio.com" style="color: #7e57c2;">tuemail@dominio.com</a></p>
+    <!-- Clients Section -->
+    <section class="clients">
+        <div class="container">
+            <div class="section-title">
+                <h2>Clientes que Confían en Nosotros</h2>
+                <p>Empresas líderes que han transformado sus operaciones con nuestras soluciones</p>
             </div>
-        </section>
-    </main>
+            <div class="clients-carousel">
+                <div class="client-logo">
+                    <div style="font-size: 1.5rem; font-weight: bold; color: #667eea;">TechCorp</div>
+                </div>
+                <div class="client-logo">
+                    <div style="font-size: 1.5rem; font-weight: bold; color: #667eea;">DataFlow</div>
+                </div>
+                <div class="client-logo">
+                    <div style="font-size: 1.5rem; font-weight: bold; color: #667eea;">Analytics Pro</div>
+                </div>
+                <div class="client-logo">
+                    <div style="font-size: 1.5rem; font-weight: bold; color: #667eea;">CloudTech</div>
+                </div>
+                <div class="client-logo">
+                    <div style="font-size: 1.5rem; font-weight: bold; color: #667eea;">InnovateLab</div>
+                </div>
+                <div class="client-logo">
+                    <div style="font-size: 1.5rem; font-weight: bold; color: #667eea;">DataVision</div>
+                </div>
+                <!-- Duplicamos los logos para el efecto infinito -->
+                <div class="client-logo">
+                    <div style="font-size: 1.5rem; font-weight: bold; color: #667eea;">TechCorp</div>
+                </div>
+                <div class="client-logo">
+                    <div style="font-size: 1.5rem; font-weight: bold; color: #667eea;">DataFlow</div>
+                </div>
+                <div class="client-logo">
+                    <div style="font-size: 1.5rem; font-weight: bold; color: #667eea;">Analytics Pro</div>
+                </div>
+                <div class="client-logo">
+                    <div style="font-size: 1.5rem; font-weight: bold; color: #667eea;">CloudTech</div>
+                </div>
+                <div class="client-logo">
+                    <div style="font-size: 1.5rem; font-weight: bold; color: #667eea;">InnovateLab</div>
+                </div>
+                <div class="client-logo">
+                    <div style="font-size: 1.5rem; font-weight: bold; color: #667eea;">DataVision</div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <footer class="footer">
-        <p>&copy; 2025 Tu Nombre o Empresa. Todos los derechos reservados.</p>
+    <!-- Contact Section -->
+    <section class="contact" id="contacto">
+        <div class="container">
+            <h2>¿Listo para Transformar tu Negocio?</h2>
+            <p>Contactanos para una consulta gratuita y descubre cómo podemos ayudarte</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <h4>Email</h4>
+                    <p>info@dataanalytics.com</p>
+                </div>
+                <div class="contact-item">
+                    <h4>Teléfono</h4>
+                    <p>+54 11 1234-5678</p>
+                </div>
+                <div class="contact-item">
+                    <h4>Ubicación</h4>
+                    <p>Buenos Aires, Argentina</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 DataAnalytics Pro. Todos los derechos reservados.</p>
+        </div>
     </footer>
 
-</body>
-</html>
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/5491112345678?text=Hola,%20me%20interesa%20saber%20más%20sobre%20sus%20servicios%20de%20análisis%20de%20datos" class="whatsapp-btn" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0
